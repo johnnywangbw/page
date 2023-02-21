@@ -23,21 +23,43 @@ var notifyWhenDone = function(err) {
 
 var cmdName = lpTag.agentSDK.cmdNames.writeSC; // = "Write StructuredContent"
 var data = {
-	json: {
+json: {
     	"type": "vertical",
-    	"elements": [{
-    		"type": "text",
-    		"text": "product name (Title)",
-    		"tooltip": "product name (Title)"
-    	}, {
-    		"type": "text",
-    		"text": "product category (type)",
-    		"tooltip": "product category (type)"
-    	}, {
-    		"type": "text",
-    		"text": "$155.99",
-    		"tooltip": "$155.99"
-    	}]
+		"elements": [    
+            {
+                "type": "image",
+                "url": "https://static.wikia.nocookie.net/pokemon/images/0/0d/025Pikachu.png/revision/latest/scale-to-width-down/350?cb=20200620223403",
+                "tooltip": "Pikachu"
+            },{
+                "type": "text",
+                "text": "Pikachu",
+                "style": {
+                    "bold": true,
+                    "size": "large"
+                }
+            }, {
+                "type": "text",
+                "text": "Attach: 55"
+            }, {
+                "type": "text",
+                "text": "Speed: 90"
+            }, {
+            "type": "button",
+            "title": "Save to favorites",
+            "click": {
+                "actions": [
+                {
+                    "type": "publishText",
+                    "text": "consumer text"
+                },
+                {
+                    "type": "link",
+                    "uri": "https://www.google.com"
+                }
+                ]
+            }
+            },
+        ]
     }
 
     };
