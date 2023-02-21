@@ -21,29 +21,9 @@ var notifyWhenDone = function(err) {
     // or when the action terminated with an error.
 };
 
-var cmdName = lpTag.agentSDK.cmdNames.writeSC; // = "Write StructuredContent"
-var data = {
-		json: {
-            "type": "vertical",
-            "elements": [{
-                "type": "image",
-                "url": "https://cdn.bgr.com/2016/08/iphone-8-concept.jpg",
-                "tooltip": "image tooltip"
-            }, {
-                "type": "text",
-                "text": "product name (Title)",
-                "tooltip": "product name (Title)"
-            }, {
-                "type": "text",
-                "text": "$155.99",
-                "tooltip": "$155.99"
-            }, {
-                "type": "link",
-                "text": "Google",
-                "uri": "https://www.google.com"
-            }]
-		}
-	};
+//var cmdName = lpTag.agentSDK.cmdNames.writeSC; // = "Write StructuredContent"
+var cmdName = lpTag.agentSDK.cmdNames.write;
+var data = {text: "Some text"};
 	
 function test() {
     console.log("test")
