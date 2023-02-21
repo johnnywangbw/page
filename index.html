@@ -22,14 +22,28 @@ var notifyWhenDone = function(err) {
 };
 
 var cmdName = lpTag.agentSDK.cmdNames.writeSC; // = "Write StructuredContent"
-var data =  {
-    	"type": "vertical",
-    	"elements": [{
-    		"type": "text",
-    		"text": "$155.99",
-    		"tooltip": "$155.99"
-    	}]
-    };
+var data = {
+    "type": "button",
+      "title": "Add to cart",
+      "click": {
+        "metadata": [
+          {
+            "type": "ExternalId",
+            "id": "12345678"
+          }
+        ],
+        "actions": [
+          {
+            "type": "publishText",
+            "text": "consumer text"
+          },
+          {
+            "type": "link",
+            "uri": "https://www.google.com"
+          }
+        ]
+      }
+	};
 	
 function test() {
     console.log("test")
