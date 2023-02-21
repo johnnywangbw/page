@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <script src="https://lpcdn.lpsnmedia.net/webagent/client-SDK.min.js" ></script>
+</head>
+<body>
+    <button onclick="test()">click me</button>
+<script>
+var notifyWhenDone = function(err) {
+    if (err) {
+        console.log(err)
+    } else {
+        console.log("done")
+    }
+    // called when the command is completed successfully,
+    // or when the action terminated with an error.
+};
+
+var cmdName = lpTag.agentSDK.cmdNames.writeSC; // = "Write StructuredContent"
+var data = {
+  json: {
+    "text": "Bankwest",
+    "type": "vertical",
+    "elements": [
+      {
+        "type": "map",
+        "lo": -31.9516865,
+        "la": 115.857914,
+        "tooltip": "Map",
+        "click": {
+          "actions": [
+            {
+              "type": "navigate",
+              "name": "navigate",
+              "lo": -31.9516865,
+              "la": 115.857914
+            }
+          ]
+        }
+      },
+      {
+        "type": "text",
+        "text": "300 Murray St, Perth WA 6000"
+      },
+    ],
+    "metadata": { "fallback": "https://maps.google.com" }
+  },
+  metadata: [	//metadata is optional
+			{"type":"ExternalId","id":"running364"},
+			{"type":"ExternalId","id":"soccer486"}
+		]
+};
+
+function test() {
+    lpTag.agentSDK.command(cmdName, data, notifyWhenDone);
+}
+
+</script>
+</body>
+</html>
